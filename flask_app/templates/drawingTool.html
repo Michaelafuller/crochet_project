@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/literallycanvas.css') }}">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Literally Canvas -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/literallycanvas.js') }}"></script>
+    <title>Drawing Tool</title>
+</head>
+<body>
+    <div class="container-fluid bg-secondary bg-gradient">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ url_for('static', filename='images/burning-letter.gif') }}" alt="Crochet logo" width="50" height="60">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/lessons">Lessons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/drawingtool">Drawing Tool</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/community">Community</a>
+                    </li>                            
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Login / Logout</a>
+                    </li>        
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/lessons">Lessons</a></li>
+                        <li><a class="dropdown-item" href="/drawingtool">Drawing Tool</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/community">Community</a></li>
+                        <li><a class="dropdown-item" href="/logout">Login / Logout</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </form>
+                </div>
+            </div>
+        </nav>
+    
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    About The Drawing Tool
+                </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse bg-dark text-light" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p><strong>Ready to draw?</strong> This tool is designed to help you place an image of your intended project next to the Literally Canvas drawing tool</p>
+                    <p>As you can see from my example, being able to crochet doesn't mean that I can draw. But that's okay! The objective is to break the object down into the most basic geometric shapes.</p>
+                    <p>By drawing the object, you will begin to see the basic shapes, the pieces of the whole. You might struggle crocheting a eye, but anyone can make a circle!</p>
+                    <p>Upload a picture from your computer for a side-by-side analysis.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-dark text-light rounded-3">
+            <div class="row justify-content-start">
+                <h4>Upload Image Here</h4>
+                <div class="col-6">
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="image_input" accept="png, jpg, bmp, gif">
+                        <label class="input-group-text" for="image_input">Upload a picture</label>
+                    </div>
+                    <div id="display_image"></div>
+                    <script>
+                        const image_input = document.querySelector('#image_input');
+                        var uploaded_image = '';
+                        image_input.addEventListener('change', function(){
+                            const reader = new FileReader();
+                            reader.addEventListener('load', () => {
+                                uploaded_image = reader.result;
+                                document.querySelector('#display_image').style.backgroundImage = `url(${uploaded_image})`
+                            });
+                            reader.readAsDataURL(this.files[0]);
+                        })
+                    </script>
+                </div>
+                <div class="col-6">
+                    <h4 class="mb-4">Drawing Tool</h4>
+                    <div class="my-drawing"></div>
+                    <h6 class="mt-3">Drawing Tool powered by <em>Literally Canvas</em>, an open-source, BSD-licensed drawing widget created by a group of volunteers.</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-dark text-light mt-3 p-3 rounded-3">
+            <h3 class="d-flex justify-content-center mt-3">Demo</h3>
+            <div class="container d-flex justify-content-center">
+                <video width="640" height="380" controls>
+                    <source src="#" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        LC.init(
+            document.getElementsByClassName('my-drawing')[0],
+            {imageURLPrefix: "static/images/"}
+        );
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Lessons</title>
+</head>
+<body>
+    <div class="container-fluid bg-secondary bg-gradient min-vh-100">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ url_for('static', filename='images/burning-letter.gif') }}" alt="Crochet logo" width="50" height="60">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/lessons">Lessons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/drawingtool">Drawing Tool</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/community">Community</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Login / Logout</a>
+                    </li>        
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/lessons">Lessons</a></li>
+                        <li><a class="dropdown-item" href="/drawingtool">Drawing Tool</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/community">Community</a></li>
+                        <li><a class="dropdown-item" href="/logout">Login / Logout</a></li>
+                    </ul>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success" type="submit">Search</button>
+                </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    About The Lessons
+                </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse bg-dark text-light" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p><strong>You're ready to Learn!</strong> We assume that you have basic knowledge of crochet. Terms like single crochet (sc), working in the round, magic ring, decreases (dec), and others are already familiar to you. This section will cover how to make basic geometic shapes.</p>
+                    <p>If you find that you're not quite ready to tackle larger projects, check out some YouTube tutorials. But come right back when you feel ready!</p>
+                    <p>You will begin to see that you can crochet anything that you see, by breaking down the object into irreducible geometic shapes. Check out some lessons below to get started!</p>
+                </div>
+                </div>
+            </div>
+
+        <div class="row justify-content-evenly">
+            <div class="col-6">
+                <div class="container bg-dark text-light p-3 rounded-3">
+                    <h1>Current Lesson</h1>
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="container bg-dark text-light p-3 rounded-3">
+                    <h1>Steps</h1>
+                </div>
+            </div>
+            
+            <div class="col-2">
+                <div class="container bg-dark text-light p-3 rounded-3">
+                    <h1>More</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
