@@ -4,7 +4,7 @@
 <hr>
 
 <h2>
-  Crochet Amigurumi Without a Pattern | <a href="https://github.com/Michaelafuller/crochet_project" alt="python crochet project">Repo</a> | <a href="http://ec2-18-233-169-51.compute-1.amazonaws.com/" alt="live website">Site</a>
+  Crochet Amigurumi Without a Pattern | <a href="http://ec2-18-233-169-51.compute-1.amazonaws.com/" alt="live website">Site</a>
 </h2>
 <table>
   <tr>
